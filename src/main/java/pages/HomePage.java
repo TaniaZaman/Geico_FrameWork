@@ -1,9 +1,12 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import static commonAction.CommonActions.*;
 
 public class HomePage {
 	
@@ -16,11 +19,9 @@ public class HomePage {
 	}
 	
 	
-	@FindBy(xpath="//span[@class='header-link']")
-	WebElement menu;
+//	@FindBy(xpath="//span[@class='header-link']")
+//	WebElement menu;
 	
-	@FindBy(xpath="//span[text()='Log In']//preceding-sibling::span[@class='icon-profile']")
-	WebElement log_in;
 	
 	@FindBy(xpath="//a[@class='icon-geico']")
 	WebElement logo;
@@ -35,13 +36,26 @@ public class HomePage {
 	@FindBy(xpath="//input[@class='btn btn--secondary']")
 	WebElement go;
 	
+	@FindBy(xpath="//span[text()='Log In']//preceding-sibling::span[@class='icon-profile']")
+	WebElement log_in;
+	
+	@FindBy(xpath="//button[@id='manageSubmit']")
+	WebElement login;
+	
+	@FindBy(xpath = "//input[@id='TextInputComponent-1']")
+	WebElement userId;//id
+	
+	@FindBy(xpath = "//input[@id='TextInputComponent-2']")
+	WebElement password;
+	
+	@FindBy(name= "SubmitButtonComponent-1")
+	WebElement loginButton;
+	
+	
+	
 	
 	public void clickMenu() throws InterruptedException {
-		menu.click();
-		Thread.sleep(5000);
-	}
-	public void clickLogIn() throws InterruptedException {
-		log_in.click();
+		driver.findElement(By.xpath("//span[@class='header-link']")).click();
 		Thread.sleep(5000);
 	}
 	public void clickLogo() throws InterruptedException {
@@ -56,7 +70,7 @@ public class HomePage {
 		enterZipCode.click();
 		Thread.sleep(5000);
 	}
-	public void inputTextInUserIdField () {
+	public void inputTextZipCodeField () {
 		enterZipCode.sendKeys("21244"); 
 		try {
 			Thread.sleep(4000);
@@ -70,4 +84,40 @@ public class HomePage {
 		
 	}
 
+//		public void clickLog_In() throws InterruptedException {
+//			clickElement(log_in);
+//			Thread.sleep(5000);
+//		}
+//			
+//			public void clickLogIn() throws InterruptedException {
+//				clickElement(login);
+//				Thread.sleep(5000);
+//		}
+			 
+		public void clickUserID() throws InterruptedException {
+			clickElement(userId);
+			Thread.sleep(5000);
+		}
+		
+		public void clickPassword() throws InterruptedException {
+			clickElement(password);
+			Thread.sleep(5000);
+		}
+		
+		public void inputTextUserIdAndPassWord() throws InterruptedException {
+			clickElement(log_in);
+			clickElement(login);
+			inputText(userId, "fgjgff");
+			inputText(password, "1234");
+			clickElement(loginButton);
+			Thread.sleep(3000);
+			
+		}
+		
+		public void clickInsuranceType() {
+			driver.findElement(By.linkText("View More Insurance Types")).click();;
+		}
+		public void clickContinueSavedQoute() {
+			driver.findElement(By.partialLinkText("Continue Your Saved")).click();;
+		}
 }

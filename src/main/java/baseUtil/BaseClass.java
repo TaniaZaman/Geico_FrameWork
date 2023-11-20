@@ -17,16 +17,32 @@ public class BaseClass {
 	
 	@BeforeMethod
 	public void setUp() {
-		System.setProperty("webdriver.chrome.driver","C:\\Users\\Tania Sultana\\eclipse-workspace\\com.geico\\Driver\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+ "/driver/chromedriver.exe");
 		//WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
-		homePage = new HomePage(driver);
+		driver.get("https://www.geico.com/");
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
-		driver.get("https://www.geico.com/");
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		homePage = new HomePage(driver);
 	}
+	
+//	@BeforeMethod
+//	 public void setUp() {
+//		String baseDir = System.getProperty("user.dir");
+//		String chromeDir = baseDir +"/Driver/chromedriver.exe";
+//			 System.setProperty("webdriver.chrome.driver",chromeDir);
+//			
+//			//WebDriverManager.chromedriver().setup();
+//			driver = new ChromeDriver();
+//			driver.manage().deleteAllCookies();
+//			driver.get("https://www.geico.com");
+//			driver.manage().window().maximize();
+//			driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
+//			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+//			homePage = new HomePage(driver);
+//		}
 	
 	
 	@AfterMethod
