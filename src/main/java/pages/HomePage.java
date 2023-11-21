@@ -29,12 +29,12 @@ public class HomePage {
 	@FindBy(xpath="//a[text()='Our Commitment to Diversity, Equity and Inclusion']")
 	WebElement announcement;
 	
-	
-	@FindBy(xpath="//input[@id='ssp-service-zip']")
-	WebElement enterZipCode;
-	
-	@FindBy(xpath="//input[@class='btn btn--secondary']")
-	WebElement go;
+//	
+//	@FindBy(xpath="//input[@id='ssp-service-zip']")
+//	WebElement enterZipCode;
+//	
+//	@FindBy(xpath="//input[@class='btn btn--secondary']")
+//	WebElement go;
 	
 	@FindBy(xpath="//span[text()='Log In']//preceding-sibling::span[@class='icon-profile']")
 	WebElement log_in;
@@ -66,12 +66,12 @@ public class HomePage {
 		announcement.click();
 		Thread.sleep(5000);
 	}
-	public void clickEnterZipCode() throws InterruptedException {
-		enterZipCode.click();
-		Thread.sleep(5000);
-	}
+//	public void clickEnterZipCode() throws InterruptedException {
+//		enterZipCode.click();
+//		Thread.sleep(5000);
+//	}
 	public void inputTextZipCodeField () {
-		enterZipCode.sendKeys("21244"); 
+		driver.findElement(By.cssSelector("input#ssp-service-zip")).sendKeys("21244"); 
 		try {
 			Thread.sleep(4000);
 		} catch (InterruptedException e) {
@@ -79,8 +79,8 @@ public class HomePage {
 		}
 	}
 		public void clickGo() throws InterruptedException {
-			go.click();
-			Thread.sleep(5000);
+			driver.findElement(By.cssSelector("input.btn.btn--secondary")).click();
+			
 		
 	}
 

@@ -4,6 +4,8 @@ import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -17,9 +19,13 @@ public class BaseClass {
 	
 	@BeforeMethod
 	public void setUp() {
-		System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+ "/driver/chromedriver.exe");
-		//WebDriverManager.chromedriver().setup();
+		//System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe");
+		//System.setProperty("webdriver.firefox.driver", "./driver/geckodriver.exe");
+		//System.setProperty("webdriver.edge.driver", "./driver/msedgedriver.exe");
+		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
+		//driver = new FirefoxDriver();
+		//driver = new EdgeDriver();
 		driver.get("https://www.geico.com/");
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
