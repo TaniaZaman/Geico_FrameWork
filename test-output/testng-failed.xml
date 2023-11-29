@@ -5,8 +5,8 @@
     <classes>
       <class name="pagesTest.HomePageTest">
         <methods>
+          <include name="use_of_sendKeys_method_then_click_by_return_key_of_the_laptop"/>
           <include name="tearUp"/>
-          <include name="clickMenuTest"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- pagesTest.HomePageTest -->

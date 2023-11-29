@@ -103,7 +103,7 @@ public class HomePage {
 			clickElement(password);
 			Thread.sleep(5000);
 		}
-		
+		//Using Common Action Here
 		public void inputTextUserIdAndPassWord() throws InterruptedException {
 			clickElement(log_in);
 			clickElement(login);
