@@ -219,21 +219,8 @@ public class HomePageTest extends BaseClass {
 	}
 
 
-	@Test(enabled = true)
-	public void read_table() throws InterruptedException {
-		Thread.sleep(5000);
-		driver.get("https://www.amazon.com");
-		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-		Thread.sleep(5000);
-		// Scrolled to the end of page
-		Actions actions = new Actions(driver);
-		actions.keyDown(Keys.CONTROL).sendKeys(Keys.END).perform();
-		Thread.sleep(5000);
-		// WebElement table = driver.findElement(By.tagName("table")); // we can use tag
-		// name too
-		WebElement table = driver.findElement(By.cssSelector("table.navFooterMoreOnAmazon"));
-		System.out.println(table.getText());
-	}
+
+
+	
 
 }
